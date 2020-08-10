@@ -11,15 +11,15 @@
         />
       </div>
 
-      <div class="weather-wrap">
+      <div class="weather-wrap" v-if="typeof weather.main !='undefined'">
         <div class="location-box">
-          <div class="location">Mombasa, Kenya</div>
+          <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
           <div class="date">Monday, 08 2020</div>
         </div>
 
         <div class="weather-box">
-          <div class="temp">9C</div>
-          <div class="weather">Rain</div>
+          <div class="temp">{{Math.round(weather.main.temp)}} °C</div>
+          <div class="weather">{{weather.weather[0].main}}</div>
         </div>
       </div>
     </main>
@@ -32,7 +32,7 @@ export default {
   data(){
     return{
       api_key: "cb7db5fe34f9eb92a11870c8082cc5d5",
-      url_base: "api.openweathermap.org/data/2.5/",
+      url_base: "http://api.openweathermap.org/data/2.5/",
       query:'',
       weather:{}
     }
