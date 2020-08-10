@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main>
+      <div class="search-box">
+        <input type="text" placeholder="Search.." class="search-bar">
+      </div>
+
+      <div class="weather-wrap">
+        <div class="location-box">
+          <div class="location">Mombasa, Kenya</div>
+          <div class="date">Monday, 08 2020</div>
+        </div>
+
+        <div class="weather-box">
+          <div class="temp">9C</div>
+          <div class="weather">Rain</div>
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      api_key: "cb7db5fe34f9eb92a11870c8082cc5d5",
+      url_base: "api.openweathermap.org/data/2.5/",
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
